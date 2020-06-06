@@ -31,18 +31,22 @@ CREATE TABLE `produto` (
     REFERENCES `marca` (`id_marca`)
 );
 
-CREATE TABLE `avaliacao`.`estoque_produto` (
-  `id_prod` INT NOT NULL,
-  `id_estoq` INT NOT NULL,
-  INDEX `id_produto_idx` (`id_prod` ASC),
-  INDEX `id_estoque_idx` (`id_estoq` ASC),
+CREATE TABLE `estoque_produto` (
+  `id_produto` INT NOT NULL,
+  `id_est` INT NOT NULL,
+  INDEX `id_produto_idx` (`id_produto` ASC),
+  INDEX `id_estoque_idx` (`id_est` ASC),
   CONSTRAINT `id_produto_fk`
-    FOREIGN KEY (`id_prod`)
-    REFERENCES `avaliacao`.`produto` (`id_produto`),
+    FOREIGN KEY (`id_produto`)
+    REFERENCES `produto` (`id_produto`),
   CONSTRAINT `id_estoque_fk`
-    FOREIGN KEY (`id_estoq`)
-    REFERENCES `avaliacao`.`estoque` (`id_est`)
+    FOREIGN KEY (`id_est`)
+    REFERENCES `estoque` (`id_est`)
 );
+
+select *
+from produto p 
+where p.produto_name = "shampoo"
 
 
 
