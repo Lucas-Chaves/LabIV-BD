@@ -11,6 +11,7 @@
         <class>br.com.lucas.entity.Estoque</class>
         <class>br.com.lucas.entity.Marca</class>
         <class>br.com.lucas.entity.Produto</class>
+        <class>br.com.lucas.entity.Livro</class>
 
 
         <properties>

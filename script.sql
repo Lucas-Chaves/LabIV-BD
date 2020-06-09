@@ -44,6 +44,15 @@ CREATE TABLE `estoque_produto` (
     REFERENCES `estoque` (`id_est`)
 );
 
+CREATE TABLE `livro` (
+  `id_produto` INT NOT NULL,
+  `liv_author` VARCHAR(255) NOT NULL,
+  `liv_titulo` VARCHAR(255) NOT NULL,
+  INDEX `id_produto_idx` (`id_produto` ASC),
+  CONSTRAINT `id_produto`
+    FOREIGN KEY (`id_produto`)
+    REFERENCES `produto` (`id_produto`));
+
 select *
 from produto p 
 where p.produto_name = "shampoo"

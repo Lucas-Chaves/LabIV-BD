@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="produto")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @AttributeOverride(name = "id", column = @Column(name = "id_produto"))
 public class Produto extends BaseEntity{
 
@@ -17,7 +17,6 @@ public class Produto extends BaseEntity{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_marca")
     private Marca marca;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "estoque_produto",
