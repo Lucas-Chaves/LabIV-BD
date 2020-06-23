@@ -1,10 +1,7 @@
 package br.com.lucas;
 
 import br.com.lucas.dao.PersistenceManager;
-import br.com.lucas.entity.Estoque;
-import br.com.lucas.entity.Livro;
-import br.com.lucas.entity.Marca;
-import br.com.lucas.entity.Produto;
+import br.com.lucas.entity.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -48,7 +45,6 @@ public class App {
 
 
 
-
         manager.getTransaction().begin();
         manager.persist(estoque);
         manager.persist(estoque1);
@@ -60,6 +56,19 @@ public class App {
 
         manager.clear();
 
+        PessoaFisica pessoaFisica = new PessoaFisica();
+        pessoaFisica.setNome("Lucas Chaves");
+        pessoaFisica.setCpf("39776308813");
+
+        PessoaJuridica pessoaJuridica = new PessoaJuridica();
+        pessoaJuridica.setNome("Lucas Chaves");
+        pessoaJuridica.setCnpj("459131990555");
+
+
+        manager.getTransaction().begin();
+        manager.persist(pessoaFisica);
+        manager.persist(pessoaJuridica);
+        manager.getTransaction().commit();
 
 
         String queryText = "select p " +
@@ -114,6 +123,8 @@ public class App {
             System.out.println("--------------------------------------------------------------------");
             index++;
         }
+
+        manager.clear();
 
     }
 }

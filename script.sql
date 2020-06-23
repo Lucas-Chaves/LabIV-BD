@@ -52,6 +52,13 @@ CREATE TABLE `livro` (
   CONSTRAINT `id_produto`
     FOREIGN KEY (`id_produto`)
     REFERENCES `produto` (`id_produto`));
+    
+CREATE TABLE `funcionario` (
+  `id_func` INT NOT NULL AUTO_INCREMENT,
+  `name_func` VARCHAR(255) NOT NULL,
+  `doc_func` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_func`));
+
 
 select *
 from produto p 
