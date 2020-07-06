@@ -53,11 +53,14 @@ CREATE TABLE `livro` (
     FOREIGN KEY (`id_produto`)
     REFERENCES `produto` (`id_produto`));
     
-CREATE TABLE `funcionario` (
-  `id_func` INT NOT NULL AUTO_INCREMENT,
-  `name_func` VARCHAR(255) NOT NULL,
-  `doc_func` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id_func`));
+CREATE TABLE `pessoa` (
+  `id_pes` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name_pes` VARCHAR(255) NOT NULL,
+  `cpf_pess` VARCHAR(255) NULL DEFAULT NULL,
+  `cnpj_pess` VARCHAR(255) NULL DEFAULT NULL,
+  `tipo` VARCHAR(1) NOT NULL);
+
+
 
 
 select *
